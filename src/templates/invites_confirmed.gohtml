@@ -1,0 +1,79 @@
+{{define "invite_confirmed"}}
+<html>
+<head>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+          integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+          crossorigin="anonymous"></script>
+  <title>Call of the Void</title>
+  <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png"/>
+  <style>
+    @font-face {
+      font-family: "Blackout";
+      src: url('/assets/fonts/blackout_midnight-webfont.woff');
+    }
+
+    @font-face {
+      font-family: "Shlop";
+      src: url('/assets/fonts/shlop-webfont.woff');
+    }
+
+    .void-title {
+      font-family: "Shlop";
+      color: #550000 /*color: #008a0b*/
+    }
+
+    .void-header {
+      font-family: "Blackout";
+      color: #FFFFFF
+    }
+
+    .spacer {
+      background: rgba(0, 0, 0, 0);
+      height: 5%;
+    }
+
+    .ghostly {
+      opacity: 0.25;
+    }
+
+    .form-control {
+      color: darkgray;
+      background-color: rgba(169, 169, 169, 0.05);
+    }
+
+    .form-check-label {
+      color: darkgray;
+    }
+
+    /*.row:last-child {*/ /*position: fixed;*/ /*bottom: 0;*/ /*}*/ /*.row .col{*/ /*border-style: solid;*/ /*border-color: aqua;*/ /*}*/
+    .background {
+      background-color: black;
+      background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url('/assets/images/background_1.jpg');
+      background-repeat: no-repeat;
+      background-position: right top;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="background">
+<div class="container text-light">
+  <div class="spacer"></div>
+  <div class="row">
+    <div class="col-12"><p class="display-4 text-left void-header">The pact is sealed...</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="row justify-content-center">
+    <div class="col-4 ghostly"><img src="/assets/images/skull_taste.png"  style="height:80%;"></div>
+  </div>
+</div>
+</body>
+</html>{{end}}

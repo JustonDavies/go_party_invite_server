@@ -1,0 +1,125 @@
+{{define "invite_edit"}}
+<html>
+<head>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+          integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+          crossorigin="anonymous"></script>
+  <title>Call of the Void</title>
+  <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png"/>
+  <style>
+    @font-face {
+      font-family: "Blackout";
+      src: url('/assets/fonts/blackout_midnight-webfont.woff');
+    }
+
+    @font-face {
+      font-family: "Shlop";
+      src: url('/assets/fonts/shlop-webfont.woff');
+    }
+
+    .void-title {
+      font-family: "Shlop";
+      color: #550000 /*color: #008a0b*/
+    }
+
+    .void-header {
+      font-family: "Blackout";
+      color: #FFFFFF
+    }
+
+    .spacer {
+      background: rgba(0, 0, 0, 0);
+      height: 5%;
+    }
+
+    .form-control {
+      color: darkgray;
+      background-color: rgba(169, 169, 169, 0.05);
+    }
+
+    .form-check-label {
+      color: darkgray;
+    }
+
+    /*.row:last-child {*/ /*position: fixed;*/ /*bottom: 0;*/ /*}*/ /*.row .col{*/ /*border-style: solid;*/ /*border-color: aqua;*/ /*}*/
+    .background {
+      background-color: black;
+      background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url('/assets/images/background_1.jpg');
+      background-repeat: no-repeat;
+      background-position: right top;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="background">
+<div class="container text-light">
+  <div class="spacer"></div>
+  <div class="row">
+    <div class="col-12"><p class="display-4 text-left void-header">A dark rite...</p></div>
+    <div class="col">
+      <form action="/invoke" method="post">
+        <input type="hidden" name="invocation_code" value={{.invocation_code}}>
+
+        <div class="form-row">
+          <div class="col-12"><span class="text-left void-header">Adept Information</span></div>
+          <div class="col-4"><input type="text"  class="form-control" name="first_name"   placeholder="First Name"     value={{.guest.FirstName}}   required></div>
+          <div class="col-4"><input type="text"  class="form-control" name="last_name"    placeholder="Last Name"      value={{.guest.LastName}}    required></div>
+          <div class="w-100"></div>
+          <div class="col-4"><input type="email" class="form-control" name="email"        placeholder="Email"          value={{.guest.Email}}       required></div>
+          <div class="col-4"><input type="tel"   class="form-control" name="phone_number" placeholder="Contact Number" value={{.guest.PhoneNumber}} required></div>
+          <div class="w-100"></div>
+          <div class="col-4"><select name="sentience_preference" class="custom-select form-control">
+            <option disabled selected>Food preference</option>
+            <option value="meat">Once Sentient (Meat)</option>
+            <option value="vegetable">Never Sentient (Plant)</option>
+          </select></div>
+        </div>
+
+        <div class="spacer"></div>
+
+        {{if .guest.GuestPermitted}}
+          <div class="form-row">
+            <div class="col-12"><span class="text-left void-header">Guest Information</span></div>
+            <div class="col-4 form-check  form-check-inline">
+                <input class="form-check-input" type="checkbox" id="plus_one" name="plus_one">
+              <label class="form-check-label" for="plus_one"> Bringing a guest? (limit 1) </label>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-4"><select name="plus_one_sentience_preference" class="custom-select form-control">
+              <option disabled selected>Guest Food preference</option>
+              <option value="meat">Once Sentient (Meat)</option>
+              <option value="vegetable">Never Sentient (Plant)</option>
+            </select></div>
+          </div>
+        {{end}}
+
+        <div class="spacer"></div>
+
+        <div class="form-row">
+          <div class="col-12"><span class="text-left void-header">Appeals & Requests</span></div>
+          <div class="col-8"><textarea class="form-control" name="plea" rows="3"></textarea></div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="form-row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-outline-danger btn-lg"><font face="Shlop">Invoke!</font></button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>{{end}}

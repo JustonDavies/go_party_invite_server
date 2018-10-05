@@ -1,0 +1,145 @@
+{{define "invite_index"}}
+<html>
+
+<head>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+          integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+          crossorigin="anonymous"></script>
+  <title>Call of the Void</title>
+  <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png"/>
+  <style>
+    @font-face {
+      font-family: "Blackout";
+      src: url('/assets/fonts/blackout_midnight-webfont.woff');
+    }
+
+    @font-face {
+      font-family: "Shlop";
+      src: url('/assets/fonts/shlop-webfont.woff');
+    }
+
+    .void-title {
+      font-family: "Shlop";
+      color: #550000 /*color: #008a0b*/
+    }
+
+    .void-header {
+      font-family: "Blackout";
+      color: #FFFFFF
+    }
+
+    .spacer {
+      background: rgba(0, 0, 0, 0);
+      height: 5%;
+    }
+
+    .form-control {
+      color: darkgray;
+      background-color: rgba(169, 169, 169, 0.05);
+    }
+
+    .form-check-label {
+      color: darkgray;
+    }
+
+    /*.row:last-child {*/ /*position: fixed;*/ /*bottom: 0;*/ /*}*/
+    /*.row .col{ border-style: solid; border-color: aqua; }*/
+    .background {
+      background-color: black;
+      background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url('/assets/images/background_1.jpg');
+      background-repeat: no-repeat;
+      background-position: right top;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body class="background">
+
+<div class="container text-light">
+
+  <div class="spacer"></div>
+
+  <div class="row">
+    <div class="col">
+      <p class="display-4 text-left">You have been invited to...</p>
+      <p class="display-1 text-center void-title">Call of the Void</p>
+      <p class="display-4 text-right">...an occult dinner party</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="row">
+    <div class="col">
+      <p class="display-4 text-left void-header">Hosts</p>
+      <p class="text-left">Juston Davies</p>
+      <p class="text-left">April Jones</p>
+    </div>
+
+    <div class="col">
+      <p class="display-4 text-left void-header">When</p>
+      <p class="text-left">Friday, October 26th from 5:30 PM</p>
+      <p class="text-left">To Saturday, October 27th at 1:00 AM</p>
+    </div>
+
+    <div class="col">
+      <p class="display-4 text-left void-header">Where</p>
+      <p class="text-left">2850 W Long Ave</p>
+      <p class="text-left">Littleton, CO, 80120</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="row">
+    <div class="col">
+      <p class="display-4 text-left void-header">Edict</p>
+      <p class="display-5 text-left">We're sending out a call for willing adepts to join
+        us for an unforgettable evening as we plunge through the veil into places far from ordinary. Imbibe in decadent
+        foods, powerful drink and take part in ancient rites while your mind is plied with visions from beyond the
+        furthest thralls of the sunless sea.</p>
+      <p class="display-5 text-left">Adepts needn't bring much, no costumes or offerings are required, everything a
+        burgeoning initiate could ever want will be afforded. The old gods ask only for body and mind, will you
+        <font face="Shlop" color="#f44336">provide?</font></p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="row">
+    <div class="col-12">
+      <p><span class="display-4 text-left void-header">Invoke the Rite</span> <small>(and reserve your place)</small></p>
+    </div>
+    <div class="col">
+      <form action="/attune" method="post" id="invocation">
+        <div class="form-row">
+          <div class="col-3">
+            <label for="invocation_code" class="sr-only">Enter your invocation, seal the pact...</label>
+            <input type="password" class="form-control" id="invocation_code" name="invocation_code" placeholder="Enter your invocation, seal the pact...">
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-outline-danger btn-lg"><font face="Shlop">Invoke</font></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
+
+{{end}}
+
+        
