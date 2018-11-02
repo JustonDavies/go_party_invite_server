@@ -9,9 +9,9 @@
 ![Screen Shot](https://raw.githubusercontent.com/JustonDavies/go_party_invite_server/master/assets/images/screenshot.png "Screen Shot")
 
 ### Dependencies:
-  This project depends on Go, dep and some small selection of supporting tools.
+  This project depends on Go, vgo and some small selection of supporting tools.
 
-  - Go: It is recommended you install Go `1.10.3` via `goenv` Instructions for installing can be found [here](https://github.com/syndbg/goenv) or by running the following commands:
+  - Go: It is recommended you install Go `1.11.0` via `goenv` Instructions for installing can be found [here](https://github.com/syndbg/goenv) or by running the following commands:
     ```
     git clone https://github.com/syndbg/goenv.git ~/.goenv
 
@@ -26,23 +26,15 @@
     goenv global  1.10.3
     ```
 
-  - dep: It is recommended you install the most recent version of dep manually via the built-in Go toolchain. Instructions for installing can be found [here](https://golang.github.io/dep/docs/installation.html) or by running the following commands:
+  - vgo: Dependencies are managed via the Go 1.11 built-in dependency management tool vgo to download dependencies needed for building:
     ```
-    go get -d -u github.com/golang/dep
-    cd $(go env GOPATH)/src/github.com/golang/dep
-    DEP_LATEST=$(git describe --abbrev=0 --tags)
-    git checkout $DEP_LATEST
-    go install -ldflags="-X main.version=$DEP_LATEST" ./cmd/dep
-    git checkout master
-    cd
+    go mod init
+    go mod tidy
+    go mod download
     ```
 
 ### Configuration:
-  Minimal configuration is required for this project, just run the following command in the project directory to get started:
-
-  ```
-  dep ensure
-  ```
+  Minimal configuration is required for this project, just download the dependencies (as stated above) and follow the instructions for the `secrets` below to get started.
 
 ### Secrets / Infrastructure:
   This project assumes that the predicate supporting services have already been deployed.
